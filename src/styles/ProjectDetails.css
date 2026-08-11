@@ -1,0 +1,271 @@
+/* =========================
+   PROJECT DETAILS PAGE
+========================= */
+
+.details-page {
+    margin-left: 0;
+    padding: 100px 35px 50px;
+
+    min-height: 100vh;
+
+    background: #f8fafc;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   DETAILS CARD
+========================= */
+
+.details-card {
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   PROJECT IMAGE
+========================= */
+
+.details-card > img,
+.details-no-image {
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: cover;
+}
+
+.details-no-image {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #e2e8f0;
+
+    color: #64748b;
+
+    font-size: 22px;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.details-content {
+    padding: 35px;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.details-content h1 {
+    margin: 0 0 15px;
+
+    color: #1e293b;
+
+    font-size: 36px;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.details-description {
+    color: #64748b;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   PROJECT INFORMATION
+========================= */
+
+.details-info {
+    padding: 20px;
+
+    background: #f8fafc;
+
+    border-radius: 10px;
+
+    margin-bottom: 30px;
+}
+
+.details-info p {
+    margin: 10px 0;
+
+    color: #475569;
+
+    font-size: 15px;
+}
+
+.details-info strong {
+    color: #1e293b;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.details-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.details-buttons a {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    font-size: 14px;
+}
+
+
+/* GITHUB */
+
+.github-btn {
+    background: #18181b;
+}
+
+.github-btn:hover {
+    background: #000000;
+}
+
+
+/* PDF */
+
+.pdf-btn {
+    background: #dc2626;
+}
+
+.pdf-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .details-page {
+        padding: 85px 15px 30px;
+    }
+
+    .details-card {
+        width: 100%;
+    }
+
+    .details-card > img,
+    .details-no-image {
+        height: 250px;
+    }
+
+    .details-content {
+        padding: 22px;
+    }
+
+    .details-content h1 {
+        font-size: 28px;
+    }
+
+    .details-description {
+        font-size: 15px;
+    }
+
+    .details-info {
+        padding: 15px;
+    }
+
+    .details-buttons {
+        flex-direction: column;
+    }
+
+    .details-buttons a {
+        width: 100%;
+
+        text-align: center;
+
+        box-sizing: border-box;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+    .details-page {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .details-content {
+        padding: 18px;
+    }
+
+    .details-content h1 {
+        font-size: 24px;
+    }
+}
