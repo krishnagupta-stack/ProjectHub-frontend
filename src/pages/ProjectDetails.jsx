@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import API from "../api/axios";
 import "../styles/ProjectDetails.css";
 
+const BACKEND_URL = "https://projecthub-backend-ius4.onrender.com";
+
 const ProjectDetails = () => {
     const { id } = useParams();
 
@@ -36,10 +38,7 @@ const ProjectDetails = () => {
         return (
             <div className="details-page">
                 <h2>Project Not Found</h2>
-
-                <Link to="/">
-                    ← Back to Home
-                </Link>
+                <Link to="/">← Back to Home</Link>
             </div>
         );
     }
@@ -49,9 +48,10 @@ const ProjectDetails = () => {
 
             <div className="details-card">
 
+                {/* Project Image */}
                 {project.image ? (
                     <img
-                        src={`http://localhost:5000${project.image}`}
+                        src={`${BACKEND_URL}${project.image}`}
                         alt={project.title}
                     />
                 ) : (
@@ -62,10 +62,7 @@ const ProjectDetails = () => {
 
                 <div className="details-content">
 
-                    <Link
-                        to="/"
-                        className="back-link"
-                    >
+                    <Link to="/" className="back-link">
                         ← Back to Projects
                     </Link>
 
@@ -103,6 +100,7 @@ const ProjectDetails = () => {
 
                     <div className="details-buttons">
 
+                        {/* GitHub */}
                         {project.githubLink && (
                             <a
                                 href={project.githubLink}
@@ -114,9 +112,10 @@ const ProjectDetails = () => {
                             </a>
                         )}
 
+                        {/* PDF */}
                         {project.pdf && (
                             <a
-                                href={`http://localhost:5000${project.pdf}`}
+                                href={`${BACKEND_URL}${project.pdf}`}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="pdf-btn"
@@ -128,9 +127,7 @@ const ProjectDetails = () => {
                     </div>
 
                 </div>
-
             </div>
-
         </div>
     );
 };
