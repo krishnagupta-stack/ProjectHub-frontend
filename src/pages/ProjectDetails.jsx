@@ -3,8 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import API from "../api/axios";
 import "../styles/ProjectDetails.css";
 
-const BACKEND_URL = "https://projecthub-backend-ius4.onrender.com";
-
 const ProjectDetails = () => {
     const { id } = useParams();
 
@@ -38,7 +36,10 @@ const ProjectDetails = () => {
         return (
             <div className="details-page">
                 <h2>Project Not Found</h2>
-                <Link to="/">← Back to Home</Link>
+
+                <Link to="/">
+                    ← Back to Home
+                </Link>
             </div>
         );
     }
@@ -51,7 +52,7 @@ const ProjectDetails = () => {
                 {/* Project Image */}
                 {project.image ? (
                     <img
-                        src={`${BACKEND_URL}${project.image}`}
+                        src={project.image}
                         alt={project.title}
                     />
                 ) : (
@@ -62,7 +63,10 @@ const ProjectDetails = () => {
 
                 <div className="details-content">
 
-                    <Link to="/" className="back-link">
+                    <Link
+                        to="/"
+                        className="back-link"
+                    >
                         ← Back to Projects
                     </Link>
 
@@ -115,7 +119,7 @@ const ProjectDetails = () => {
                         {/* PDF */}
                         {project.pdf && (
                             <a
-                                href={`${BACKEND_URL}${project.pdf}`}
+                                href={project.pdf}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="pdf-btn"
@@ -127,7 +131,9 @@ const ProjectDetails = () => {
                     </div>
 
                 </div>
+
             </div>
+
         </div>
     );
 };
