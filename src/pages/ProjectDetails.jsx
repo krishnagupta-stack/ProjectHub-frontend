@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import API from "../api/axios";
 import "../styles/ProjectDetails.css";
 
+const BACKEND_URL = "https://projecthub-backend-ius4.onrender.com";
+
 const ProjectDetails = () => {
     const { id } = useParams();
 
@@ -18,10 +20,24 @@ const ProjectDetails = () => {
             const res = await API.get(`/projects/${id}`);
             setProject(res.data);
         } catch (error) {
-            console.log(error);
+            console.log("Error:", error);
         } finally {
             setLoading(false);
         }
+    };
+
+    const getFileUrl = (file) => {
+        if (!file) return "";
+
+        if (file.startsWith("http")) {
+            return file;
+        }
+
+        if (file.startsWith("/")) {
+            return `${BACKEND_URL}${file}`;
+        }
+
+        return `${BACKEND_URL}/uploads/${file}`;
     };
 
     if (loading) {
@@ -49,11 +65,20 @@ const ProjectDetails = () => {
 
             <div className="details-card">
 
-                {/* Project Image */}
+                {/* PROJECT IMAGE */}
                 {project.image ? (
                     <img
-                        src={project.image}
+                        src={getFileUrl(project.image)}
                         alt={project.title}
+                        className="project-details-image"
+                        onError={(e) => {
+                            console.log(
+                                "Image URL:",
+                                getFileUrl(project.image)
+                            );
+
+                            e.target.style.display = "none";
+                        }}
                     />
                 ) : (
                     <div className="details-no-image">
@@ -104,7 +129,7 @@ const ProjectDetails = () => {
 
                     <div className="details-buttons">
 
-                        {/* GitHub */}
+                        {/* GITHUB */}
                         {project.githubLink && (
                             <a
                                 href={project.githubLink}
@@ -119,7 +144,7 @@ const ProjectDetails = () => {
                         {/* PDF */}
                         {project.pdf && (
                             <a
-                                href={project.pdf}
+                                href={getFileUrl(project.pdf)}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="pdf-btn"
@@ -131,7 +156,6 @@ const ProjectDetails = () => {
                     </div>
 
                 </div>
-
             </div>
 
         </div>
